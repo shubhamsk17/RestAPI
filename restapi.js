@@ -1,6 +1,16 @@
 const express = require('express');
+const basicAuth = require('express-basic-auth');
 const app = express();
 const port = 888;
+
+
+
+app.use(basicAuth({
+    users: {'Shubham': '123@shu'},
+    challenge: true,
+    unauthorizedResponse: 'Unauthorised'
+}));
+
 
 app.use(express.json());
 
